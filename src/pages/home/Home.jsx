@@ -1,13 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SHOP_DATA from '../../assets/data/shopData';
 import Hero from '../../components/hero/Hero';
 import ProductCard from '../../components/productCard/ProductCard';
+import { selectBestsellers } from '../../redux/shop/shopSlice';
 import { AboutContent, AboutSection, Cards, FindPlantButton, FindPlantContent, FindPlantContainer, FindPlantText, ImageContainer, PlantImage, Section, SectionTitle } from './Home.styles';
 
 const Home = () => {
-
-    const bestSellers = SHOP_DATA.filter(item => item.bestseller);
+    const bestsellers = useSelector(selectBestsellers)
 
     return (
         <div className="home-container">
@@ -26,7 +26,7 @@ const Home = () => {
             <Section bgColor="white">
                 <SectionTitle>Best Sellers</SectionTitle>
                 <Cards>
-                    {bestSellers.map(product => (
+                    {bestsellers.map(product => (
                         <ProductCard key={product.id} item={product} />
                     ))}
                 </Cards>
@@ -38,7 +38,7 @@ const Home = () => {
                         <FindPlantText>Green onions dill pumpkin coconut macadamia nut cookies garlic sriracha noodles cashew sesame soba noodles lychee falafel bites lemon red lentil soup roasted peanuts cranberry spritzer</FindPlantText>
                         <FindPlantButton>Plant Quiz</FindPlantButton>
                     </FindPlantContent>
-                    <PlantImage src="/images/succulents.png" />
+                    <PlantImage src="/images/succulents.png" alt="succulent" />
                 </FindPlantContainer>
             </Section>
         </div>

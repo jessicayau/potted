@@ -5,6 +5,7 @@ import {
     getDoc,
     getFirestore,
     setDoc,
+    writeBatch,
 } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
@@ -55,6 +56,28 @@ export const getCurrentUser = () => {
     });
 };
 
+export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
+    const collectionRef = collection(firestoreDB, collectionKey);
+
+    const batch = writeBatch(firestoreDB);
+    objectsToAdd.forEach((obj) => {
+        const newDocRef = doc(collectionRef);
+        batch.set(newDocRef, obj);
+    });
+    return await batch.commit();
+};
+
+export const getCollectionArray = (collectionSnapshot) => {
+    const productsData = collectionSnapshot.docs.map((doc) => {
+        return {
+            ...doc.data(),
+            id: doc.id,
+        };
+    });
+    return productsData;
+};
+
 export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
+
 export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);

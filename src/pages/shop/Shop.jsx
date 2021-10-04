@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import SHOP_DATA from '../../assets/data/shopData';
+import { useSelector } from 'react-redux';
 import ProductCard from '../../components/productCard/ProductCard';
 import FormInput from '../../components/formInput/FormInput';
-import { Banner, BannerContainer, Filters, ProductsContainer, ShopContainer } from './Shop.styles';
+import { Banner, BannerContainer, Filters, ProductsContainer, ShopContainer } from './Shop.styles';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+import { selectIsFetching, selectProducts } from '../../redux/shop/shopSlice';
+import Spinner from '../../components/spinner/Spinner';
+
 
 const Shop = () => {
     const [searchTerm, setSearchTerm] = useState('');
+
+    const isFetching = useSelector(selectIsFetching);
+    const products = useSelector(selectProducts);
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
@@ -26,11 +32,16 @@ const Shop = () => {
                     required
                 />
             </Filters>
-            <ProductsContainer>
-                {SHOP_DATA.map(item => (
-                    <ProductCard key={item.id} item={item} />
-                ))}
-            </ProductsContainer>
+            {!isFetching ? (
+                <ProductsContainer>
+                    {products.map(item => (
+                        <ProductCard key={item.id} item={item} />
+                    ))}
+                </ProductsContainer>
+            ) : (
+                    <Spinner />
+            )
+        }
         </ShopContainer>
     )
 }
