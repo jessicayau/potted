@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Btn from '../btn/Btn';
-// import { useDispatch } from 'react-redux';
 import FormInput from '../formInput/FormInput';
 import { Buttons, LoginContainer, LoginTitle } from './Login.styles';
-// import { emailLoginStart, googleLoginStart } from '../../redux/user/userActions';
+import { googleLoginStart, emailLoginStart } from '../../redux/user/userSlice';
 
 
 const Login = ({ children }) => {
     const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
     const { email, password } = userCredentials;
 
-    // const dispatch = useDispatch();
-    // const googleLoginStartHandler = () => dispatch(googleLoginStart());
-    // const emailLoginStartHandler = (email, password) => dispatch(emailLoginStart({ email, password }));
+    const dispatch = useDispatch();
+    const googleLoginStartHandler = () => dispatch(googleLoginStart());
+    const emailLoginStartHandler = (email, password) => dispatch(emailLoginStart({ email, password }));
     
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     emailLoginStartHandler(email, password);
-    // }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        emailLoginStartHandler(email, password);
+    }
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -32,7 +32,7 @@ const Login = ({ children }) => {
         <LoginContainer>
             <LoginTitle>Log In</LoginTitle>
             <span>Log in with your email and password or Google account</span>
-            <form> 
+            <form onSubmit={handleSubmit}> 
                 <FormInput
                     type="email"
                     name="email"
@@ -51,8 +51,7 @@ const Login = ({ children }) => {
                 />
                 <Buttons>
                     <Btn type="submit">Login with Email</Btn>
-                    <Btn type="button">Continue with Google</Btn>
-                    {/* <CustomButton type="button" onClick={googleLoginStartHandler} isGoogleSignIn>Login with Google</CustomButton> */}
+                    <Btn type="button" onClick={googleLoginStartHandler}>Continue with Google</Btn>
                 </Buttons>
             </form>
             {children}

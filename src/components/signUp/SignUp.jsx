@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Btn from '../btn/Btn';
 import FormInput from '../formInput/FormInput';
-// import CustomButton from '../CustomButton/CustomButton';
 import { SignUpContainer, SignUpTitle } from './SignUp.styles';
-// import { signUpStart } from '../../redux/user/userActions';
+import { signUpStart } from '../../redux/user/userSlice';
 
 
 const SignUp = ({ children }) => {
@@ -16,19 +15,19 @@ const SignUp = ({ children }) => {
     })
 
     const { displayName, email, password, confirmPassword } = userCredentials;
-    // const dispatch = useDispatch();
-    // const signUpStartHandler = (userCredentials) => dispatch(signUpStart(userCredentials));
+    const dispatch = useDispatch();
+    const signUpHandler = (verifiedCredentials) => dispatch(signUpStart(verifiedCredentials));
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         
-    //     if (password !== confirmPassword) {
-    //         alert("Passwords do not match");
-    //         return;
-    //     }
-        
-    //     signUpStartHandler({ displayName, email, password });
-    // };
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        } else {
+            signUpHandler({ displayName, email, password });
+        }
+    };
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -42,7 +41,7 @@ const SignUp = ({ children }) => {
         <SignUpContainer>
             <SignUpTitle>Don't have an account?</SignUpTitle>
             <span>Sign up today!</span>
-            <form className="sign-up-form">
+            <form className="sign-up-form" onSubmit={handleSubmit}>
                 <FormInput
                     type="text"
                     name="displayName"
