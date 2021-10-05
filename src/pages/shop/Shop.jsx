@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProductCard from '../../components/productCard/ProductCard';
 import FormInput from '../../components/formInput/FormInput';
 import { Banner, BannerContainer, Filters, ProductsContainer, ShopContainer } from './Shop.styles';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
@@ -9,9 +9,9 @@ import Spinner from '../../components/spinner/Spinner';
 
 const Shop = () => {
     const [searchTerm, setSearchTerm] = useState('');
-
     const isFetching = useSelector(selectIsFetching);
     const products = useSelector(selectProducts);
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
@@ -20,7 +20,7 @@ const Shop = () => {
     return (
         <ShopContainer>
             <BannerContainer>
-                <Banner src="images/succulents.png" />
+                <Banner src="images/succulents.png"  alt="banner" />
             </BannerContainer>
             <Filters>
                 <FormInput
@@ -39,7 +39,7 @@ const Shop = () => {
                     ))}
                 </ProductsContainer>
             ) : (
-                    <Spinner />
+                <Spinner />
             )
         }
         </ShopContainer>

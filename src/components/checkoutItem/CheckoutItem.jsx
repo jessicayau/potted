@@ -1,25 +1,15 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { addItem, clearItemFromCart, removeItem } from '../../redux/cart/cartActions';
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart, clearFromCart } from '../../redux/cart/cartSlice';
 import { Arrow, CheckoutItemContainer, CheckoutItemData, CheckoutItemImage, CheckoutItemImageContainer, CheckoutItemName, CheckoutItemProduct, CheckoutItemQuantity } from './CheckoutItem.styles';
 
 const CheckoutItem = ({ item }) => {
     const { name, imageUrl, price, quantity } = item;
-    // const dispatch = useDispatch();
-    // const clearItemHandler = item => dispatch(clearItemFromCart(item));
-    // const addItemHandler = item => dispatch(addItem(item));
-    // const removeItemHandler = item => dispatch(removeItem(item))
-    const clearItemHandler = () => {
-        console.log("clear")
-    }
+    const dispatch = useDispatch();
+    const clearItemHandler = item => dispatch(clearFromCart(item));
+    const addItemHandler = item => dispatch(addToCart(item));
+    const removeItemHandler = item => dispatch(removeFromCart(item))
 
-    const addItemHandler = () => {
-        console.log("add")
-    }
-
-    const removeItemHandler = () => {
-        console.log("remove")
-    }
 
     return (
         <CheckoutItemContainer className="Checkout-container">
@@ -37,10 +27,10 @@ const CheckoutItem = ({ item }) => {
                 </CheckoutItemQuantity>
             </CheckoutItemData>
             <CheckoutItemData>
-            <span className="price">${price.toFixed(2)}</span>
+                <span className="price">${price.toFixed(2)}</span>
             </CheckoutItemData>
             <CheckoutItemData>
-            <span className="remove-btn" onClick={() => clearItemHandler(item)}>&#10005;</span>
+                <span className="remove-btn" onClick={() => clearItemHandler(item)}>&#10005;</span>
             </CheckoutItemData>
         </CheckoutItemContainer>
     )

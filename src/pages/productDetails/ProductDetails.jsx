@@ -1,16 +1,22 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router';
-import SHOP_DATA from '../../assets/data/shopData';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import Heart from "../../components/heart/Heart";
 import { BiArrowBack } from 'react-icons/bi';
 import { IoSunny, IoSunnyOutline, IoWater, IoWaterOutline } from 'react-icons/io5';
 import { IoMdPaw } from 'react-icons/io'
 import { AddToCartBtn, BackButtonContainer, DetailsContainer, HeartContainer, Image, ImageContainer, PetFriendlyContainer, ProductDescription, ProductDetailsContainer, ProductPrice, ProductTitle, SideIconsContainer, Specs } from './ProductDetails.styles';
+import { addToCart } from '../../redux/cart/cartSlice';
 
 
-const ProductDetails = () => {
-    const { itemName } = useParams();
+const ProductDetails = ({ currentProduct }) => {
+    const { id, name, imageUrl, price, water, light, bestseller, petFriendly } = currentProduct;
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const addItemHandler = () => {
+        dispatch(addToCart(currentProduct))
+    }
 
     const icons = (num) => {
         let iconSet = []
@@ -23,12 +29,6 @@ const ProductDetails = () => {
         }
         return iconSet;
     }
-    
-
-    const currentProduct = SHOP_DATA.filter(product => product.linkUrl === itemName)[0]
-    console.log(currentProduct)
-
-    const { id, name, imageUrl, price, water, light, bestseller, petFriendly } = currentProduct;
     
     return (
         <ProductDetailsContainer>
@@ -74,7 +74,7 @@ const ProductDetails = () => {
                 ))}
                 </div>
                 </Specs>
-                <AddToCartBtn>Add to cart</AddToCartBtn>
+                <AddToCartBtn onClick={addItemHandler}>Add to cart</AddToCartBtn>
             </DetailsContainer>
         </ProductDetailsContainer>
     )

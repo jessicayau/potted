@@ -7,9 +7,9 @@ import Shop from '../../pages/shop/Shop';
 import About from '../../pages/about/About';
 import Contact from '../../pages/contact/Contact';
 import LoginAndSignUp from '../../pages/loginAndSignUp/LoginAndSignUp';
-import ProductDetails from '../../pages/productDetails/ProductDetails';
 import Checkout from '../../pages/checkout/Checkout';
 import { selectCurrentUser } from '../../redux/user/userSlice';
+import ProductDetailsContainer from '../../pages/productDetails/ProductDetailsContainer';
 
 
 const Main = () => {
@@ -21,7 +21,7 @@ const Main = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/shop" component={Shop} />
-                <Route path="/shop/:itemName" component={ProductDetails} />
+                <Route path="/shop/:itemName" component={ProductDetailsContainer} />
                 <Route exact path="/contact" component={Contact} />
                 <Route
                     exact

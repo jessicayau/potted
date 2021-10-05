@@ -9,6 +9,7 @@ import { AboutContent, AboutSection, Cards, FindPlantButton, FindPlantContent, F
 const Home = () => {
     const bestsellers = useSelector(selectBestsellers)
 
+
     return (
         <div className="home-container">
             <Hero />
@@ -29,7 +30,7 @@ const Home = () => {
                     {bestsellers.map(product => (
                         <ProductCard key={product.id} item={product} />
                     ))}
-                </Cards>
+                </Cards>    
             </Section>
             <Section>
                 <SectionTitle>Find The Perfect Plant</SectionTitle>

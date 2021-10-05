@@ -1,7 +1,7 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
-    products: null,
+    products: [],
     isFetching: false,
     errorMessage: undefined,
 };
@@ -28,7 +28,7 @@ const shopSlice = createSlice({
 // selectors
 export const selectProducts = (state) => state.shop.products;
 export const selectIsFetching = (state) => state.shop.isFetching;
-export const selectBestsellers = createSelector([selectProducts], (products) =>
+export const selectBestsellers = createSelector(selectProducts, (products) =>
     products.filter((item) => item.bestseller)
 );
 

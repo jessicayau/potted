@@ -14,6 +14,14 @@ export const CheckoutItemData = styled.td`
     text-align: center;
     border-bottom: 1px solid darkgrey;
     padding-bottom: 1rem;
+
+    & .remove-btn {
+        cursor: pointer;
+
+        &:hover {
+            font-weight: 700;
+        }
+    }
 `
 
 export const CheckoutItemProduct = styled(CheckoutItemData)`

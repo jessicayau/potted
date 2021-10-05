@@ -54,6 +54,7 @@ export const BasketContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 `
 
 export const ItemCounter = styled.span`

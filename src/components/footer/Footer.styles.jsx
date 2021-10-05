@@ -56,13 +56,6 @@ export const SubscribeContainer = styled.div`
     }
 `
 
-export const SubscribeInput = styled.input`
-    width: 80%;
-    height: 20%;
-    padding: 0 1rem;
-    margin: 0.5rem 0 1rem;
-`
-
 export const SubscribeButton = styled(Btn)`
     width: 50%;
 `

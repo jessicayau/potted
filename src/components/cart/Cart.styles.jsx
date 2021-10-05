@@ -7,8 +7,7 @@ export const CartDropdownContainer = styled.div`
     width: 100%;
     min-height: 340px;
     height: 100vh;
-    /* display: flex; */
-    display: none;
+    display: flex;
     flex-direction: column;
     padding: 20px;
     background-color: white;
@@ -26,10 +25,23 @@ export const CartDropdownContainer = styled.div`
 
 export const CloseCartBtn = styled(IoMdClose)`
     margin-right: auto;
+    cursor: pointer;
 `
 
-export const CartDropdownButton = styled(Btn)`
-    margin-top: auto;
+export const ClearCartBtn = styled.span`
+    margin-top: 1rem;
+    margin-right: auto;
+    font-weight: 500;
+    cursor: pointer;
+    
+
+    &:hover {
+        font-weight: 700;
+    }
+`
+
+export const GoToCheckoutBtn = styled(Btn)`
+    margin: auto 0 1rem;
 `;
 
 export const EmptyMessageContainer = styled.span`

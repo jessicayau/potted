@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 export const CheckoutPage = styled.div`
-    /* min-height: 90vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    margin: 5% auto 4rem;
+    margin: 5% 0 4rem;
 
     @media screen and (max-width: 425px ) {
         width: 100%;
@@ -17,6 +15,7 @@ export const CheckoutPage = styled.div`
 export const CheckoutTable = styled.table`
     display: ${props => props.numCartItems < 1 ? "none" : "table"};
     width: 75%;
+    margin-top: 1.5rem;
     border-collapse: separate;
     border-spacing: 0 1rem;
 
@@ -47,11 +46,11 @@ export const HeaderTitle = styled.th`
     }
 `
 
-export const CheckoutTotal = styled.div`
+export const CheckoutTotal = styled.span`
     width: 75%;
     text-align: right;
     margin-top: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
 
     @media screen and (max-width: 425px ) {
@@ -63,9 +62,9 @@ export const CheckoutTotal = styled.div`
 
 export const TestMessage = styled.div`
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: red;
-    margin: 2% 0;
+    margin: 3% 0 2%;
 
     @media screen and (max-width: 425px ) {
         font-size: 1rem;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaFacebookF, FaInstagram, FaPinterestP, FaYoutube } from 'react-icons/fa';
 import FormInput from '../formInput/FormInput';
-import { FooterContainer, FooterTitle, Links, Location, FooterBottom, FooterContent, FooterLink, FooterSocials, SocialLink, SubscribeButton, SubscribeContainer, SubscribeInput, SuccessMessage } from './Footer.styles';
+import { FooterContainer, FooterTitle, Links, Location, FooterBottom, FooterContent, FooterLink, FooterSocials, SocialLink, SubscribeButton, SubscribeContainer, SuccessMessage } from './Footer.styles';
+
 
 const Footer = () => {
     const [email, setEmail] = useState('');
@@ -65,7 +66,7 @@ const Footer = () => {
                     <SocialLink href=""><FaYoutube /></SocialLink>
             </FooterSocials>
             <FooterBottom>
-                <p>Created by Jess &#169;2021</p>
+                <p>Designed &amp; Created by Jess &#169;2021</p>
             </FooterBottom>
         </FooterContainer>
     )
