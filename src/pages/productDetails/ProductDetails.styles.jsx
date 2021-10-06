@@ -3,7 +3,6 @@ import Btn from "../../components/btn/Btn";
 
 
 export const ProductDetailsContainer = styled.div`
-    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -44,7 +43,7 @@ export const Image = styled.img`
     }
 `
 
-export const HeartContainer = styled.div`
+export const FavoriteIconContainer = styled.div`
     display: none;
 
     @media screen and (min-width: 1024px) {
@@ -70,7 +69,6 @@ export const SideIconsContainer = styled.div`
     @media screen and (min-width: 1024px) {
         display: none;
     }
-    
 `
 
 export const BackButtonContainer = styled.div`
@@ -154,5 +152,4 @@ export const AddToCartBtn = styled(Btn)`
         width: 40%;
         align-self: start;
     }
-    
 `

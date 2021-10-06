@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Btn from "../btn/Btn";
-import Heart from "../heart/Heart";
+import FavoriteIcon from "../favoriteIcon/FavoriteIcon";
 
 
 export const Card = styled.div`
@@ -72,7 +72,7 @@ export const ViewButton = styled(Btn)`
     transition: all 250ms cubic-bezier(0.25, 0.45, 0.45, 0.95);
 `
 
-export const HeartFilled = styled(Heart)`
+export const HeartIcon = styled(FavoriteIcon)`
     position: absolute;
     top: 25%;
     right: 5%;

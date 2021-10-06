@@ -19,6 +19,9 @@ const Navbar = ({ menuIsOpen, setMenuIsOpen }) => {
             <StyledLink to='/about'>
                 <NavItem>About</NavItem>
             </StyledLink>
+            <StyledLink to='/favorites'>
+                <NavItem>Favorites</NavItem>
+            </StyledLink>
             <StyledLink to='/contact'>
                 <NavItem>Contact</NavItem>
             </StyledLink>

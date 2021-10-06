@@ -10,6 +10,7 @@ import LoginAndSignUp from '../../pages/loginAndSignUp/LoginAndSignUp';
 import Checkout from '../../pages/checkout/Checkout';
 import { selectCurrentUser } from '../../redux/user/userSlice';
 import ProductDetailsContainer from '../../pages/productDetails/ProductDetailsContainer';
+import Favorites from '../../pages/favorites/Favorites';
 
 
 const Main = () => {
@@ -23,6 +24,7 @@ const Main = () => {
                 <Route exact path="/shop" component={Shop} />
                 <Route path="/shop/:itemName" component={ProductDetailsContainer} />
                 <Route exact path="/contact" component={Contact} />
+                <Route exact path="/favorites" component={Favorites} />
                 <Route
                     exact
                     path="/login"

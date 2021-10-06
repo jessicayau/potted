@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import Heart from "../../components/heart/Heart";
+import FavoriteIcon from "../../components/favoriteIcon/FavoriteIcon";
 import { BiArrowBack } from 'react-icons/bi';
 import { IoSunny, IoSunnyOutline, IoWater, IoWaterOutline } from 'react-icons/io5';
 import { IoMdPaw } from 'react-icons/io'
-import { AddToCartBtn, BackButtonContainer, DetailsContainer, HeartContainer, Image, ImageContainer, PetFriendlyContainer, ProductDescription, ProductDetailsContainer, ProductPrice, ProductTitle, SideIconsContainer, Specs } from './ProductDetails.styles';
+import { AddToCartBtn, BackButtonContainer, DetailsContainer, FavoriteIconContainer, Image, ImageContainer, PetFriendlyContainer, ProductDescription, ProductDetailsContainer, ProductPrice, ProductTitle, SideIconsContainer, Specs } from './ProductDetails.styles';
 import { addToCart } from '../../redux/cart/cartSlice';
 
 
 const ProductDetails = ({ currentProduct }) => {
-    const { id, name, imageUrl, price, water, light, bestseller, petFriendly } = currentProduct;
+    const { name, imageUrl, price, water, light, petFriendly } = currentProduct;
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -38,15 +38,15 @@ const ProductDetails = ({ currentProduct }) => {
                     <BackButtonContainer>
                         <BiArrowBack size='1.5rem' onClick={() => history.goBack()} />
                     </BackButtonContainer>
-                    <Heart />
+                    <FavoriteIcon item={currentProduct} />
                 </SideIconsContainer>
             </ImageContainer>
             <DetailsContainer>
                 <ProductTitle>{name}</ProductTitle>
                 <ProductPrice>${price.toFixed(2)}</ProductPrice>
-                <HeartContainer>
-                    <Heart /><span>Add to Favorites</span>
-                </HeartContainer>
+                <FavoriteIconContainer>
+                    <FavoriteIcon item={currentProduct} /><span>Add to Favorites</span>
+                </FavoriteIconContainer>
                 <ProductDescription>Raspberries green tea bruschetta cherry almond milk chai latte crispy potato summertime with banh mi salad rolls Bolivian rainbow pepper Indian spiced. Pinch of yum vitamin glow strawberry mango smoothie simmer Mexican fiesta seasonal apricot almond milk Thai dessert lime enchiladas arugula salad pomegranate creamy cauliflower alfredo.</ProductDescription>
                 {petFriendly && (
                 <PetFriendlyContainer>
