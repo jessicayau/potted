@@ -29,7 +29,7 @@ export const NavbarContainer = styled.nav`
 export const StyledLink = styled(NavLink)`
     color: initial;
     text-decoration: none;
-    padding-left: 1rem;
+    margin-left: 1rem;
 
     &.active {
         font-weight: bold;

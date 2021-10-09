@@ -23,12 +23,29 @@ export const FormInputContainer = styled.input`
     background-color: white;
     color: ${secondaryColor};
     font-size: 1.125rem;
+    font-family: 'Quicksand', sans-serif;
     padding: .5rem;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid ${secondaryColor};
+
+    &:-internal-autofill-selected {
+        transition: background-color 100000000s;
+        animation: 1ms void-animation-out;
+    }
+
+    &:-webkit-autofill {
+    -webkit-text-fill-color: black;
+    /* Hack to hide the default webkit autofill */
+    transition: background-color 100000000s;
+    animation: 1ms void-animation-out;
+    }
+
+    &::placeholder {
+        color: #87bbfd;
+    }
 
     &:focus {
         outline: none;
@@ -37,12 +54,19 @@ export const FormInputContainer = styled.input`
     &:focus ~ label {
         ${shrinkLabelStyles}
     }
+    
+    @keyframes void-animation-out {
+        0%,
+        to {
+            opacity: 1;
+        }
+    }
 `
 
 export const FormInputLabel = styled.label`
-    color: ${secondaryColor};
+    color: #949cc4;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: 700;
     position: absolute;
     pointer-events: none;
     left: .4rem;

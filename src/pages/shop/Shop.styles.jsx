@@ -7,7 +7,6 @@ export const ShopContainer = styled.div`
 export const BannerContainer = styled.div`
     position: relative;
     display: flex;
-    /* background-color: lightblue; */
 
     &::after {
         content: '';
@@ -27,36 +26,28 @@ export const Banner = styled.img`
     min-width: 280px;
     max-width: 600px;
     margin: 0 auto;
-
 `
 
 export const ProductsContainer = styled.div`
     width: 100%;
     padding: 3rem 5%;
     display: grid;
-    column-gap: 1rem;
+    gap: 2rem;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 200px);
 
-    /* @media screen and (min-width: 580px) and (max-width: 767px) {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 1rem;
-    } */
-
-
-    /* @media screen and (min-width: 760px) {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        column-gap: 2rem;
-        padding: 3rem 5%;
-    } */
-
-    @media screen and (min-width: 480px) {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        column-gap: 2rem;
+    @media screen and (max-width: 425px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 `
 
 export const Filters = styled.div`
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+    div {
+        width: 100%;
+        max-width: 350px;
+    }
 `

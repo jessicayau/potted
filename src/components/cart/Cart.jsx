@@ -19,7 +19,7 @@ const Cart = () => {
     }
 
     const goToCheckoutHandler = () => {
-        history.push('/checkout');
+        history.push('/review');
         dispatch(toggleCartHidden());
     }
 
@@ -36,7 +36,7 @@ const Cart = () => {
                     <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
                 )}
             </CartItemsContainer>
-            <GoToCheckoutBtn onClick={goToCheckoutHandler}>GO TO CHECKOUT</GoToCheckoutBtn>
+            <GoToCheckoutBtn onClick={goToCheckoutHandler}>Proceed To Checkout</GoToCheckoutBtn>
         </CartDropdownContainer>
     );
 };

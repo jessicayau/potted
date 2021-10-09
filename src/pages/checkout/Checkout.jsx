@@ -1,47 +1,48 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import CheckoutItem from '../../components/checkoutItem/CheckoutItem';
-// import StripeButton from '../../components/StripeButton/StripeButton';
-import { selectCartItems, selectCartTotal } from '../../redux/cart/cartSlice';
-import { CheckoutPage, CheckoutTable, CheckoutTotal, HeaderTitle, TableHeader, TestMessage } from './Checkout.styles';
+import { useSelector } from 'react-redux';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import CartItem from '../../components/cartItem/CartItem';
+import CheckoutForm from '../../components/checkoutForm/CheckoutForm';
+import { OrderSummaryContainer, CheckoutContainer, CheckoutPageContainer, Costs, ItemsContainer, Cost, OrderSummary, Title, Header } from './Checkout.styles';
+import { selectCartItems, selectCartItemsTotal, selectCartTotal } from '../../redux/cart/cartSlice';
 
+const publishableKey = 'pk_test_51JYcbRFTlyQMcfNaJmHXuLPHZzPeaumXgEvzknihr4WmczeuhaoKGKt4wibiinsy916d29nv5SZGHCqJYkxSUjHA00AyHiCvxS';
+const stripePromise = loadStripe(publishableKey);
 
 const Checkout = () => {
-    const cartItems = useSelector(selectCartItems);
-    const cartTotal = useSelector(selectCartTotal);
-    
+    const cartItems = useSelector(selectCartItems)
+    const cartTotal = useSelector(selectCartTotal)
+    const cartItemsTotal = useSelector(selectCartItemsTotal)
 
     return (
-        <CheckoutPage>
-            <h1>Let's Checkout</h1>
-            <CheckoutTable numCartItems={cartItems.length}>
-                    <thead>
-                        <TableHeader>
-                            <HeaderTitle>Product</HeaderTitle>
-                            <HeaderTitle>Quantity</HeaderTitle>
-                            <HeaderTitle>Price</HeaderTitle>
-                            <HeaderTitle>Remove</HeaderTitle>
-                        </TableHeader>
-                    </thead>
-                    <tbody>
-                        {cartItems.map(item => {
-                            return (
-                                <CheckoutItem key={item.id} item={item} />
-                            )
-                        })
-                        }
-                    </tbody>
-            </CheckoutTable>
-            <CheckoutTotal>TOTAL: ${cartTotal.toFixed(2)}</CheckoutTotal>
-            <TestMessage>
-                *Please use the following test credit card for payments*
-                <br />
-                4242 4242 4242 4242 - Exp: 04/24 - CVV: 242
-            </TestMessage>
-            {/* <StripeButton price={cartTotal} /> */}
-        </CheckoutPage>
+        <CheckoutPageContainer>
+            <Header>Let's Checkout</Header>
+            <CheckoutContainer>
+                <OrderSummaryContainer>
+                    <Title>Order Summary</Title>
+                    <OrderSummary>
+                        <h3>Total Items: {cartItemsTotal}</h3>
+                        <ItemsContainer>
+                            {cartItems.map((cartItem) => (
+                                <CartItem key={cartItem.id} item={cartItem} />
+                            ))}
+                        </ItemsContainer>
+                        <hr />
+                        <Costs>
+                            <Cost>Subtotal: ${cartTotal.toFixed(2)}</Cost>
+                            <Cost>Shipping: $5.00</Cost>
+                            <Cost>Total: ${(cartTotal + 5).toFixed(2)}</Cost>
+                        </Costs>
+                    </OrderSummary>
+                </OrderSummaryContainer>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm />
+                </Elements>
+            </CheckoutContainer>
+        </CheckoutPageContainer>
     )
 }
 
-
 export default Checkout;
+

@@ -1,73 +1,68 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const CheckoutPage = styled.div`
+export const CheckoutPageContainer = styled.div`
+    margin-top: 5%;
+`
+
+export const Header = styled.h1`
+    text-align: center;
+`
+
+export const CheckoutContainer = styled.div`
+    padding: 5% 5% 4rem;
+    display: grid;
+    row-gap: 2rem;
+
+    @media screen and (min-width: 600px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 5%;
+    }
+
+    @media screen and (min-width: 1440px) {
+        grid-template-columns: 1fr 1fr;
+        gap: 10%;
+        padding: 5% 8%;
+    }
+`
+
+export const Title = styled.h2`
+    font-size: 1.5rem;
+    margin-top: 1rem;
+`
+
+
+export const OrderSummaryContainer = styled.div`
+
+    @media screen and (min-width: 600px) {
+        order: 2;
+    }
+`
+
+export const OrderSummary = styled.div`
+    height: 500px;
+    padding: 1rem;
+    box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08);
+`
+
+export const ItemsContainer = styled.div`
+    height: 65%;
+    margin: 1rem 5% 1.5rem;
+    overflow-y: auto;
+
+`
+
+export const Costs = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 5% 0 4rem;
-
-    @media screen and (max-width: 425px ) {
-        width: 100%;
-        padding: 5%;
-    }
+    align-items: flex-end;
+    margin: 1rem 5% 0;
 `
+export const Cost = styled.span`
+    line-height: 1.5rem;
 
-export const CheckoutTable = styled.table`
-    display: ${props => props.numCartItems < 1 ? "none" : "table"};
-    width: 75%;
-    margin-top: 1.5rem;
-    border-collapse: separate;
-    border-spacing: 0 1rem;
-
-    @media screen and (max-width: 425px ) {
-        width: 100%;
-    }
-`
-export const TableHeader = styled.tr`
-    margin-bottom: 1rem;
-
-    @media screen and (max-width: 425px ) {
-        font-size: 1.2rem;
-    }
-`
-
-export const HeaderTitle = styled.th`
-    text-align: center;
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid darkgrey;
-
-    &:first-child {
-        text-align: left;
-    }
-
-    @media screen and (max-width:425px) {
-        font-size: 1rem;
-    }
-`
-
-export const CheckoutTotal = styled.span`
-    width: 75%;
-    text-align: right;
-    margin-top: 1.5rem;
-    font-size: 1.5rem;
-    font-weight: 500;
-
-    @media screen and (max-width: 425px ) {
-        width: 100%;
+    &:last-child {
+        font-weight: 700;
         font-size: 1.3rem;
-        font-weight: 500;
+        line-height: 2rem;
     }
 `
-
-export const TestMessage = styled.div`
-    text-align: center;
-    font-size: 1.2rem;
-    color: red;
-    margin: 3% 0 2%;
-
-    @media screen and (max-width: 425px ) {
-        font-size: 1rem;
-    }
-`
-

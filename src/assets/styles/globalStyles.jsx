@@ -35,6 +35,17 @@ const GlobalStyle = createGlobalStyle`
     p {
         line-height: 1.5rem;
     }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+            transform: scale3D(0.95, 0.95, 0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale3D(1, 1, 1);
+        }
+    }
 `
 
 export default GlobalStyle;
