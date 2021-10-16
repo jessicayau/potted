@@ -1,40 +1,43 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Btn from '../btn/Btn';
-import FormInput from '../formInput/FormInput';
-import { Buttons, LoginContainer, LoginTitle } from './Login.styles';
-import { googleLoginStart, emailLoginStart } from '../../redux/user/userSlice';
-
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import Btn from "../btn/Btn";
+import FormInput from "../formInput/FormInput";
+import { Buttons, LoginContainer, LoginTitle } from "./Login.styles";
+import { googleLoginStart, emailLoginStart } from "../../redux/user/userSlice";
 
 const Login = ({ children }) => {
-    const [userCredentials, setUserCredentials] = useState({ email: '', password: '' });
+    const [userCredentials, setUserCredentials] = useState({
+        email: "",
+        password: "",
+    });
     const { email, password } = userCredentials;
 
     const dispatch = useDispatch();
     const googleLoginStartHandler = () => dispatch(googleLoginStart());
-    const emailLoginStartHandler = (email, password) => dispatch(emailLoginStart({ email, password }));
-    
+    const emailLoginStartHandler = (email, password) =>
+        dispatch(emailLoginStart({ email, password }));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         emailLoginStartHandler(email, password);
-    }
+    };
 
     const handleChange = (e) => {
         const { value, name } = e.target;
         setUserCredentials({
             ...userCredentials,
-            [name]: value
-        })
-    }
+            [name]: value,
+        });
+    };
 
     return (
         <LoginContainer>
             <LoginTitle>Log In</LoginTitle>
             <span>Log in with your email and password or Google account</span>
-            <form onSubmit={handleSubmit}> 
+            <form onSubmit={handleSubmit}>
                 <FormInput
                     type="email"
+                    id="userEmail"
                     name="email"
                     value={email}
                     label="Email"
@@ -43,6 +46,7 @@ const Login = ({ children }) => {
                 />
                 <FormInput
                     type="password"
+                    id="userPassword"
                     name="password"
                     value={password}
                     label="Password"
@@ -50,14 +54,21 @@ const Login = ({ children }) => {
                     required
                 />
                 <Buttons>
-                    <Btn type="submit">Login with Email</Btn>
-                    <Btn type="button" onClick={googleLoginStartHandler}>Continue with Google</Btn>
+                    <Btn secondaryBtn type="submit">
+                        Login with Email
+                    </Btn>
+                    <Btn
+                        googleBtn
+                        type="button"
+                        onClick={googleLoginStartHandler}
+                    >
+                        Continue with Google
+                    </Btn>
                 </Buttons>
             </form>
             {children}
         </LoginContainer>
-    )
-}
-
+    );
+};
 
 export default Login;

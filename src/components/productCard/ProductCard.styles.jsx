@@ -2,44 +2,39 @@ import styled from "styled-components";
 import Btn from "../btn/Btn";
 import FavoriteIcon from "../favoriteIcon/FavoriteIcon";
 
-
 export const Card = styled.div`
     width: 100%;
     height: 19rem;
     position: relative;
-    /* transition: all 6s cubic-bezier(0.25, 0.45, 0.45, 0.95); */
-    
+    cursor: pointer;
 
     &:hover {
-
         button {
-           display: block;
+            display: block;
         }
 
         img {
-            opacity: .8;
+            opacity: 0.8;
         }
     }
-
-`
+`;
 
 export const CardContainer = styled.div`
     height: 100%;
     width: 100%;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: end;
-    
-`
+`;
 export const CardContent = styled.div`
-    padding: .5rem;
+    padding: 0.5rem 0.5rem 1rem;
     height: 80%;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #d7d5ee67;
+    background-color: var(--card-bgcolor);
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -47,19 +42,20 @@ export const CardContent = styled.div`
     text-align: center;
     border-radius: 0.5rem;
     position: relative;
-`
-
+`;
 
 export const CardImage = styled.img`
-    /* height: 90%; */
-    height: 75%;
-    width: 80%;
+    height: 230px;
+    width: 150px;
     position: absolute;
     left: 50%;
-    /* top: -10%; */
     bottom: 27%;
     transform: translateX(-50%);
-`
+`;
+
+export const CardItemName = styled.span`
+    font-weight: 700;
+`;
 
 export const ViewButton = styled(Btn)`
     display: none;
@@ -68,12 +64,12 @@ export const ViewButton = styled(Btn)`
     top: 60%;
     left: 50%;
     transform: translateX(-50%);
-    opacity: .9;
+    opacity: 0.9;
     transition: all 250ms cubic-bezier(0.25, 0.45, 0.45, 0.95);
-`
+`;
 
 export const HeartIcon = styled(FavoriteIcon)`
     position: absolute;
     top: 25%;
     right: 5%;
-`
+`;

@@ -1,6 +1,14 @@
-import React from 'react';
-import { useHistory } from 'react-router';
-import { Card, CardContainer, CardContent, CardImage, HeartIcon, ViewButton } from './ProductCard.styles';
+import React from "react";
+import { useHistory } from "react-router";
+import {
+    Card,
+    CardContainer,
+    CardContent,
+    CardImage,
+    CardItemName,
+    HeartIcon,
+    ViewButton,
+} from "./ProductCard.styles";
 
 const ProductCard = ({ item }) => {
     const history = useHistory();
@@ -9,15 +17,19 @@ const ProductCard = ({ item }) => {
         <Card>
             <CardContainer>
                 <CardContent>
-                    <h4>{item.name}</h4>
-                    <p>${item.price.toFixed(2)}</p>
+                    <CardItemName>{item.name}</CardItemName>
+                    <span>${item.price.toFixed(2)}</span>
                 </CardContent>
-                <CardImage src={item.imageUrl} />
+                <CardImage src={item.imageUrl} alt={item.name} />
                 <HeartIcon item={item} />
-                <ViewButton onClick={() => history.push(`/shop/${item.linkUrl}`)}>View</ViewButton>
+                <ViewButton
+                    onClick={() => history.push(`/shop/${item.linkUrl}`)}
+                >
+                    View
+                </ViewButton>
             </CardContainer>
         </Card>
-    )
-}
+    );
+};
 
 export default ProductCard;

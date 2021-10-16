@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Btn from "../../components/btn/Btn";
 
-
 export const ProductDetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -13,14 +12,14 @@ export const ProductDetailsContainer = styled.div`
         column-gap: 5%;
         padding: 2rem 1rem;
     }
-`
+`;
 
 export const ImageContainer = styled.div`
     width: 70%;
     margin: 1rem auto;
-    
-    @media screen and (min-width: 426px) {
-        width: 60%;  
+
+    @media screen and (min-width: 425px) {
+        width: 60%;
     }
 
     @media screen and (min-width: 600px) {
@@ -33,15 +32,15 @@ export const ImageContainer = styled.div`
         height: 80vh;
         margin: 1rem 0;
     }
-`
+`;
 
 export const Image = styled.img`
     width: 100%;
-    
+
     @media screen and (min-width: 1024px) {
         height: 100%;
     }
-`
+`;
 
 export const FavoriteIconContainer = styled.div`
     display: none;
@@ -52,8 +51,8 @@ export const FavoriteIconContainer = styled.div`
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
-    } 
-`
+    }
+`;
 
 export const SideIconsContainer = styled.div`
     position: absolute;
@@ -69,7 +68,7 @@ export const SideIconsContainer = styled.div`
     @media screen and (min-width: 1024px) {
         display: none;
     }
-`
+`;
 
 export const BackButtonContainer = styled.div`
     height: 100%;
@@ -78,21 +77,20 @@ export const BackButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-right-radius: .6rem;
-    border-bottom-right-radius: .6rem; 
-    background-color: #e7f1e7dc;
-    opacity: .6;
+    border-top-right-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+    background-color: var(--primary-bgcolor);
+    opacity: 0.8;
     cursor: pointer;
 
     &:hover {
         opacity: 1;
     }
-`
-
+`;
 
 export const DetailsContainer = styled.div`
     padding: 2rem 10% 2.5rem;
-    background-color: #c1dfc7dc;
+    background-color: var(--secondary-bgcolor);
     border-top-right-radius: 1.5rem;
     border-top-left-radius: 1.5rem;
 
@@ -104,31 +102,31 @@ export const DetailsContainer = styled.div`
         flex-direction: column;
         justify-content: center;
     }
-`
+`;
 
 export const ProductTitle = styled.h1`
-    padding-bottom: .5rem;
-`
+    padding-bottom: 0.5rem;
+`;
 
 export const ProductPrice = styled.h2`
     font-size: 1.25rem;
-`
+`;
 
 export const ProductDescription = styled.p`
-    padding-bottom: .5rem;
-`
+    padding-bottom: 0.5rem;
+`;
 
 export const PetFriendlyContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: .5rem 0;
-`
+    padding: 0.5rem 0;
+`;
 
 export const Specs = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 
     .specs {
         display: flex;
@@ -141,15 +139,20 @@ export const Specs = styled.div`
             padding-left: 1rem;
         }
     }
-`
+`;
 
 export const AddToCartBtn = styled(Btn)`
     width: 100%;
     align-self: center;
     margin-top: 1rem;
 
+    @media screen and (min-width: 600px) {
+        &:hover {
+            background-color: var(--button-hover-secondary-bgcolor);
+        }
+    }
     @media screen and (min-width: 1024px) {
         width: 40%;
         align-self: start;
     }
-`
+`;

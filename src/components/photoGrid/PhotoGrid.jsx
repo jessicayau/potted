@@ -1,23 +1,23 @@
-import React from 'react';
-import { Grid, GridPhoto, PhotoContainer } from './PhotoGrid.styles';
+import React from "react";
+import { Grid, GridPhoto, PhotoContainer } from "./PhotoGrid.styles";
+
+const gridImages = [
+    "/images/succulent2.png",
+    "/images/succulent1.png",
+    "/images/succulent3.png",
+    "/images/succulent4.png",
+];
 
 const PhotoGrid = () => {
     return (
         <Grid>
-            <PhotoContainer>
-                <GridPhoto src="/images/succulents.png" />
-            </PhotoContainer>
-            <PhotoContainer bgColor="#a0cfb05c">
-                <GridPhoto  src="/images/succulent1.png" />
-            </PhotoContainer>
-            <PhotoContainer>
-                <GridPhoto src="/images/succulent3.png" />
-            </PhotoContainer>
-            <PhotoContainer bgColor="#a0cfb05c">
-                <GridPhoto src="/images/succulent4.png" />
-            </PhotoContainer>
+            {gridImages.map((image, index) => (
+                <PhotoContainer key={index}>
+                    <GridPhoto src={image} alt="plant" />
+                </PhotoContainer>
+            ))}
         </Grid>
-    )
-}
+    );
+};
 
 export default PhotoGrid;

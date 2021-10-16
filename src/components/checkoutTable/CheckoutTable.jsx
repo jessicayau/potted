@@ -1,7 +1,10 @@
-import React from 'react';
-import CheckoutItem from '../checkoutItem/CheckoutItem';
-import { CheckoutTableContainer, HeaderTitle, TableHeader } from './CheckoutTable.styles';
-
+import React from "react";
+import CheckoutItem from "../checkoutItem/CheckoutItem";
+import {
+    CheckoutTableContainer,
+    HeaderTitle,
+    TableHeader,
+} from "./CheckoutTable.styles";
 
 const CheckoutTable = ({ cartItems }) => {
     return (
@@ -15,13 +18,12 @@ const CheckoutTable = ({ cartItems }) => {
                 </TableHeader>
             </thead>
             <tbody>
-                {cartItems.map(item => (
-                        <CheckoutItem key={item.id} item={item} />
-                    )
-                )}
+                {cartItems.map((item) => (
+                    <CheckoutItem key={item.id} item={item} />
+                ))}
             </tbody>
         </CheckoutTableContainer>
-    )
-}
+    );
+};
 
 export default CheckoutTable;

@@ -1,26 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectFavorites } from '../../redux/favorite/favoriteSlice';
-import ProductCard from '../../components/productCard/ProductCard';
-import { FavoriteProductsContainer, FavoritesContainer, EmptyMessage } from './Favorites.styles';
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectFavorites } from "../../redux/favorite/favoriteSlice";
+import ProductCard from "../../components/productCard/ProductCard";
+import {
+    FavoriteProductsContainer,
+    FavoritesContainer,
+    FavoritesTitle,
+    EmptyMessage,
+} from "./Favorites.styles";
 
 const Favorites = () => {
     const favoritesList = useSelector(selectFavorites);
 
     return (
         <FavoritesContainer>
-            <h1>Favorites</h1>
+            <FavoritesTitle>Favorites</FavoritesTitle>
             {favoritesList.length < 1 ? (
-                <EmptyMessage>Your favorites list is empty. Keep browsing!</EmptyMessage>
+                <EmptyMessage>
+                    Your favorites list is empty. Keep browsing!
+                </EmptyMessage>
             ) : (
                 <FavoriteProductsContainer>
-                    {favoritesList.map(item => (
+                    {favoritesList.map((item) => (
                         <ProductCard key={item.id} item={item} />
                     ))}
-                </FavoriteProductsContainer>      
-            )}         
+                </FavoriteProductsContainer>
+            )}
         </FavoritesContainer>
-    )
-}
+    );
+};
 
 export default Favorites;

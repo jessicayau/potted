@@ -6,7 +6,13 @@ export const FavoritesContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 3.5rem 0 2rem;
-`
+`;
+
+export const FavoritesTitle = styled.h1`
+    @media screen and (min-width: 768px) {
+        font-size: 4vw;
+    }
+`;
 
 export const FavoriteProductsContainer = styled.div`
     width: 100%;
@@ -16,12 +22,14 @@ export const FavoriteProductsContainer = styled.div`
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 200px);
     row-gap: 2rem;
+    animation: fade 250ms ease-out;
 
     @media screen and (max-width: 425px) {
         grid-template-columns: 1fr 1fr;
     }
-`
+`;
 
 export const EmptyMessage = styled.p`
-    margin-top: 2rem;
-`
+    margin: 2rem 5% 0;
+    text-align: center;
+`;

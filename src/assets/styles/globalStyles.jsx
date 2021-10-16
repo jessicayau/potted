@@ -1,10 +1,30 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    :root {
+        --header-color: aliceblue;
+        --label-color: #949cc4;
+        --error-color: #eb437b;
+        --primary-bgcolor: #e7f1e7dc;
+        --secondary-bgcolor: #c1dfc7dc;
+        --card-bgcolor: aliceblue;
+        --button-bgcolor: black;
+        --button-hover-primary-bgcolor: white;
+        --button-hover-secondary-bgcolor: #a0cfb05c;
+        --button-hover-google-bgcolor: #cef0f581;
+        --button-text-color: white;
+        --button-hover-text-color: black;
+    }
+
     *, *::before, *::after {
         box-sizing: border-box;
     }
 
+    html {
+        max-width: 2000px;
+        margin: 0 auto;
+    }
+    
     body {
         font-family: 'Quicksand', sans-serif;
         margin: 0;
@@ -46,6 +66,6 @@ const GlobalStyle = createGlobalStyle`
             transform: scale3D(1, 1, 1);
         }
     }
-`
+`;
 
 export default GlobalStyle;

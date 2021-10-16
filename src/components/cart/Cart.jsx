@@ -1,9 +1,20 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import CartItem from '../cartItem/CartItem';
-import { toggleCartHidden, selectCartItems, clearAllFromCart } from '../../redux/cart/cartSlice.js';
-import { CartDropdownContainer, GoToCheckoutBtn, EmptyMessageContainer, CartItemsContainer, CloseCartBtn, ClearCartBtn } from './Cart.styles';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import CartItem from "../cartItem/CartItem";
+import {
+    toggleCartHidden,
+    selectCartItems,
+    clearAllFromCart,
+} from "../../redux/cart/cartSlice.js";
+import {
+    GoToCheckoutBtn,
+    EmptyCartMessage,
+    CartItemsContainer,
+    CloseCartBtn,
+    ClearCartBtn,
+    CartOverviewContainer,
+} from "./Cart.styles";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -11,33 +22,45 @@ const Cart = () => {
     const cartItems = useSelector(selectCartItems);
 
     const cartToggleHandler = () => {
-        dispatch(toggleCartHidden())
-    }
+        dispatch(toggleCartHidden());
+    };
 
     const clearCartHandler = () => {
-        dispatch(clearAllFromCart())
-    }
+        dispatch(clearAllFromCart());
+    };
 
     const goToCheckoutHandler = () => {
-        history.push('/review');
+        history.push("/review");
         dispatch(toggleCartHidden());
-    }
+    };
 
     return (
-        <CartDropdownContainer>
-            <CloseCartBtn onClick={cartToggleHandler} />
-            { cartItems.length > 0 && <ClearCartBtn onClick={clearCartHandler}>Clear Cart</ClearCartBtn>}
+        <CartOverviewContainer>
+            <CloseCartBtn
+                title="close cart"
+                role="button"
+                onClick={cartToggleHandler}
+            />
+            {cartItems.length > 0 && (
+                <ClearCartBtn role="button" onClick={clearCartHandler}>
+                    Clear Cart
+                </ClearCartBtn>
+            )}
             <CartItemsContainer>
                 {cartItems.length ? (
-                cartItems.map((cartItem) => (
-                    <CartItem key={cartItem.id} item={cartItem} />
-                ))
+                    cartItems.map((cartItem) => (
+                        <CartItem key={cartItem.id} item={cartItem} />
+                    ))
                 ) : (
-                    <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
+                    <EmptyCartMessage>Your cart is empty</EmptyCartMessage>
                 )}
             </CartItemsContainer>
-            <GoToCheckoutBtn onClick={goToCheckoutHandler}>Proceed To Checkout</GoToCheckoutBtn>
-        </CartDropdownContainer>
+            {cartItems.length > 0 && (
+                <GoToCheckoutBtn secondaryBtn onClick={goToCheckoutHandler}>
+                    Proceed To Checkout
+                </GoToCheckoutBtn>
+            )}
+        </CartOverviewContainer>
     );
 };
 

@@ -2,20 +2,23 @@ import styled from "styled-components";
 
 export const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-    gap: 1rem;
-    padding: 0 1rem;
-`
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    gap: 0.5rem;
+    animation: fade 250ms ease-out;
+`;
 
 export const PhotoContainer = styled.div`
-    height: 240px;
+    height: 200px;
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-color: ${props => props.bgColor || '#cef0f581'};
-    /* background-color: #cef0f581; */
-    border-radius: .5rem;
-`
+    background-color: #a0cfb05c;
+    border-radius: 0.5rem;
+
+    &:nth-child(odd) {
+        background-color: #cef0f581;
+    }
+`;
 
 export const GridPhoto = styled.img`
     height: 100%;
@@ -23,4 +26,4 @@ export const GridPhoto = styled.img`
     bottom: -25%;
     left: 50%;
     transform: translateX(-50%);
-`
+`;

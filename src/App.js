@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import Footer from "./components/footer/Footer";
-import "./App.css";
 import { IconContext } from "react-icons";
 import GlobalStyle from "./assets/styles/globalStyles";
 import ScrollToTop from "./components/ScrollToTop";

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SignUpContainer = styled.div`
     width: 100%;
@@ -6,8 +6,8 @@ export const SignUpContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 5%;
-`
+`;
 
 export const SignUpTitle = styled.h2`
-    margin: .625rem 0;
-`
+    margin: 0.625rem 0;
+`;

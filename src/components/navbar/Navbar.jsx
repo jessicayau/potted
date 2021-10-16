@@ -1,42 +1,47 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCurrentUser, signOutStart } from '../../redux/user/userSlice';
-import { NavbarContainer, NavItem, StyledLink } from './Navbar.styles';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCurrentUser, signOutStart } from "../../redux/user/userSlice";
+import { NavbarContainer, NavItem, StyledLink } from "./Navbar.styles";
 
 const Navbar = ({ menuIsOpen, setMenuIsOpen }) => {
     const currentUser = useSelector(selectCurrentUser);
     const dispatch = useDispatch();
     const signOutHandler = () => dispatch(signOutStart());
 
+    const menuHandler = () => {
+        if (menuIsOpen) {
+            setMenuIsOpen(!menuIsOpen);
+        } else return;
+    };
+
     return (
-        <NavbarContainer menuIsOpen={menuIsOpen} onClick={() => setMenuIsOpen(!menuIsOpen)}>
-            <StyledLink exact to='/'>
-                <NavItem>Home</NavItem>
+        <NavbarContainer menuIsOpen={menuIsOpen}>
+            <StyledLink exact to="/">
+                <NavItem onClick={menuHandler}>Home</NavItem>
             </StyledLink>
-            <StyledLink to='/shop'>
-                <NavItem>Shop</NavItem>
+            <StyledLink to="/shop">
+                <NavItem onClick={menuHandler}>Shop</NavItem>
             </StyledLink>
-            <StyledLink to='/about'>
-                <NavItem>About</NavItem>
+            <StyledLink to="/about">
+                <NavItem onClick={menuHandler}>About</NavItem>
             </StyledLink>
-            <StyledLink to='/favorites'>
-                <NavItem>Favorites</NavItem>
+            <StyledLink to="/favorites">
+                <NavItem onClick={menuHandler}>Favorites</NavItem>
             </StyledLink>
-            <StyledLink to='/contact'>
-                <NavItem>Contact</NavItem>
+            <StyledLink to="/contact">
+                <NavItem onClick={menuHandler}>Contact</NavItem>
             </StyledLink>
             {currentUser ? (
                 <StyledLink as="div" onClick={signOutHandler}>
-                    <NavItem>Sign Out</NavItem>
+                    <NavItem onClick={menuHandler}>Sign Out</NavItem>
                 </StyledLink>
             ) : (
-                <StyledLink to='/login'>
-                    <NavItem>Login</NavItem>
+                <StyledLink to="/login">
+                    <NavItem onClick={menuHandler}>Login</NavItem>
                 </StyledLink>
-            )
-            } 
+            )}
         </NavbarContainer>
-    )
-}
+    );
+};
 
 export default Navbar;

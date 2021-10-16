@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../../assets/images/plant-logo.svg';
-
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../assets/images/plant-logo.svg";
 
 export const HeaderContainer = styled.div`
     position: fixed;
@@ -10,43 +9,43 @@ export const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem 1rem;
-    background-color: aliceblue;
+    padding: 0.5rem 1rem;
+    background-color: var(--header-color);
     z-index: 2;
 
     @media screen and (min-width: 768px) {
         position: static;
     }
-`
+`;
 
 export const LogoContainer = styled.div`
     height: 100%;
     display: flex;
     align-items: flex-end;
-`
+`;
 
 export const StyledLink = styled(Link)`
     height: 100%;
     display: flex;
     align-items: center;
     font-weight: 700;
-`
+`;
 
 export const PlantLogo = styled(Logo)`
     height: 100%;
     max-height: 3rem;
-`
+`;
 
 export const Brand = styled.span`
     font-size: 1.3rem;
     color: black;
-`
+`;
 
 export const NavWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-`
+`;
 
 export const BasketContainer = styled.div`
     height: 100%;
@@ -55,18 +54,19 @@ export const BasketContainer = styled.div`
     display: flex;
     justify-content: center;
     cursor: pointer;
-`
+`;
 
 export const ItemCounter = styled.span`
     position: absolute;
     right: -40%;
     bottom: -50%;
-    padding: .2rem .3rem;
+    padding: 0.1rem 0.4rem;
     color: black;
-    background: lightblue;
+    background: var(--header-color);
     border-radius: 50%;
-    font-size: .9rem;
-`
+    font-size: 0.9rem;
+    border: 1px solid grey;
+`;
 
 export const ToggleBtn = styled.div`
     display: none;
@@ -80,31 +80,36 @@ export const ToggleBtn = styled.div`
         cursor: pointer;
         z-index: 2;
     }
-`
+`;
 
 export const Line = styled.p`
     position: relative;
     width: 24px;
-	height: 2px;
-	background-color: ${props => props.menuIsOpen ? 'transparent' : 'black'};
-	border-radius: 5px;
-	transition: all 250ms ease-in-out;
+    height: 2px;
+    background-color: ${(props) =>
+        props.menuIsOpen ? "transparent" : "black"};
+    border-radius: 5px;
+    transition: all 250ms ease-in-out;
 
-    &::before, &::after {
-        content: '';
+    &::before,
+    &::after {
+        content: "";
         width: 24px;
         height: 2px;
-        background-color: ${props => props.menuIsOpen ? 'paleturquoise' : 'black'};
+        background-color: ${(props) =>
+            props.menuIsOpen ? "#a0cfb0" : "black"};
         border-radius: 5px;
         transition: all 250ms ease-in-out;
         position: absolute;
     }
 
     &::before {
-        transform: ${props => props.menuIsOpen ? 'rotate(-135deg)' : 'translateY(-.5rem)'};
+        transform: ${(props) =>
+            props.menuIsOpen ? "rotate(-135deg)" : "translateY(-.5rem)"};
     }
 
     &::after {
-        transform: ${props => props.menuIsOpen ? 'rotate(135deg)' : 'translateY(.5rem)'};
+        transform: ${(props) =>
+            props.menuIsOpen ? "rotate(135deg)" : "translateY(.5rem)"};
     }
-`
+`;

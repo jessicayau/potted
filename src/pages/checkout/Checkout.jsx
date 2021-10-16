@@ -1,19 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-import CartItem from '../../components/cartItem/CartItem';
-import CheckoutForm from '../../components/checkoutForm/CheckoutForm';
-import { OrderSummaryContainer, CheckoutContainer, CheckoutPageContainer, Costs, ItemsContainer, Cost, OrderSummary, Title, Header } from './Checkout.styles';
-import { selectCartItems, selectCartItemsTotal, selectCartTotal } from '../../redux/cart/cartSlice';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CartItem from "../../components/cartItem/CartItem";
+import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
+import {
+    OrderSummaryContainer,
+    CheckoutContainer,
+    CheckoutPageContainer,
+    Costs,
+    ItemsContainer,
+    Cost,
+    OrderSummary,
+    Title,
+    Header,
+} from "./Checkout.styles";
+import {
+    selectCartItems,
+    selectCartItemsTotal,
+    selectCartTotal,
+} from "../../redux/cart/cartSlice";
 
-const publishableKey = 'pk_test_51JYcbRFTlyQMcfNaJmHXuLPHZzPeaumXgEvzknihr4WmczeuhaoKGKt4wibiinsy916d29nv5SZGHCqJYkxSUjHA00AyHiCvxS';
+const publishableKey =
+    "pk_test_51JYcbRFTlyQMcfNaJmHXuLPHZzPeaumXgEvzknihr4WmczeuhaoKGKt4wibiinsy916d29nv5SZGHCqJYkxSUjHA00AyHiCvxS";
 const stripePromise = loadStripe(publishableKey);
 
 const Checkout = () => {
-    const cartItems = useSelector(selectCartItems)
-    const cartTotal = useSelector(selectCartTotal)
-    const cartItemsTotal = useSelector(selectCartItemsTotal)
+    const cartItems = useSelector(selectCartItems);
+    const cartTotal = useSelector(selectCartTotal);
+    const cartItemsTotal = useSelector(selectCartItemsTotal);
 
     return (
         <CheckoutPageContainer>
@@ -41,8 +56,7 @@ const Checkout = () => {
                 </Elements>
             </CheckoutContainer>
         </CheckoutPageContainer>
-    )
-}
+    );
+};
 
 export default Checkout;
-
