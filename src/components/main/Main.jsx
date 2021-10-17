@@ -1,19 +1,26 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { MainContainer } from "./Main.styles";
-import Home from "../../pages/home/Home";
-import Shop from "../../pages/shop/Shop";
-import About from "../../pages/about/About";
-import Contact from "../../pages/contact/Contact";
-import LoginAndSignUp from "../../pages/loginAndSignUp/LoginAndSignUp";
-import Checkout from "../../pages/checkout/Checkout";
 import { selectCurrentUser } from "../../redux/user/userSlice";
-import ProductDetailsContainer from "../../pages/productDetails/ProductDetailsContainer";
-import Favorites from "../../pages/favorites/Favorites";
-import Review from "../../pages/review/Review";
 import { selectCartItemsTotal } from "../../redux/cart/cartSlice";
 import PageNotFound from "../../pages/pageNotFound/PageNotFound";
+import ErrorBoundary from "../errorBoundary/ErrorBoundary";
+import Spinner from "../spinner/Spinner";
+
+const Home = lazy(() => import("../../pages/home/Home"));
+const Shop = lazy(() => import("../../pages/shop/Shop"));
+const About = lazy(() => import("../../pages/about/About"));
+const Contact = lazy(() => import("../../pages/contact/Contact"));
+const LoginAndSignUp = lazy(() =>
+    import("../../pages/loginAndSignUp/LoginAndSignUp")
+);
+const Checkout = lazy(() => import("../../pages/checkout/Checkout"));
+const ProductDetailsContainer = lazy(() =>
+    import("../../pages/productDetails/ProductDetailsContainer")
+);
+const Favorites = lazy(() => import("../../pages/favorites/Favorites"));
+const Review = lazy(() => import("../../pages/review/Review"));
 
 const Main = () => {
     const currentUser = useSelector(selectCurrentUser);
@@ -21,33 +28,47 @@ const Main = () => {
 
     return (
         <MainContainer>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/shop" component={Shop} />
-                <Route
-                    path="/shop/:itemName"
-                    component={ProductDetailsContainer}
-                />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/favorites" component={Favorites} />
-                <Route
-                    exact
-                    path="/login"
-                    render={() =>
-                        currentUser ? <Redirect to="/" /> : <LoginAndSignUp />
-                    }
-                />
-                <Route exact path="/review" component={Review} />
-                <Route
-                    exact
-                    path="/checkout"
-                    render={() =>
-                        cartItemsTotal ? <Checkout /> : <Redirect to="/" />
-                    }
-                />
-                <Route component={PageNotFound} />
-            </Switch>
+            {/* <Switch> */}
+            <ErrorBoundary>
+                <Suspense fallback={<Spinner />}>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/about" component={About} />
+                        <Route exact path="/shop" component={Shop} />
+                        <Route
+                            path="/shop/:itemName"
+                            component={ProductDetailsContainer}
+                        />
+                        <Route exact path="/contact" component={Contact} />
+                        <Route exact path="/favorites" component={Favorites} />
+                        <Route
+                            exact
+                            path="/login"
+                            render={() =>
+                                currentUser ? (
+                                    <Redirect to="/" />
+                                ) : (
+                                    <LoginAndSignUp />
+                                )
+                            }
+                        />
+                        <Route exact path="/review" component={Review} />
+                        <Route
+                            exact
+                            path="/checkout"
+                            render={() =>
+                                cartItemsTotal ? (
+                                    <Checkout />
+                                ) : (
+                                    <Redirect to="/" />
+                                )
+                            }
+                        />
+                        <Route component={PageNotFound} />
+                    </Switch>
+                </Suspense>
+            </ErrorBoundary>
+            {/* </Switch> */}
         </MainContainer>
     );
 };

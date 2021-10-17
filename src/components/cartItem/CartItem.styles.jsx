@@ -7,10 +7,6 @@ export const CartItemContainer = styled.div`
     margin-bottom: 1rem;
 `;
 
-export const CartItemImage = styled.img`
-    width: 30%;
-`;
-
 export const ItemDetailsContainer = styled.div`
     width: 70%;
     display: flex;

@@ -22,8 +22,8 @@ export const CheckoutContainer = styled.div`
         gap: 5%;
     }
 
-    @media screen and (min-width: 1440px) {
-        grid-template-columns: 1fr 1fr;
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: 1.5fr 1fr;
         gap: 10%;
         padding: 5% 8%;
     }

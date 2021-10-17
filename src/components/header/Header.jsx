@@ -41,8 +41,6 @@ const Header = () => {
         }
     }, [menuIsOpen, isHidden]);
 
-    console.log(menuIsOpen);
-
     return (
         <HeaderContainer menuIsOpen={menuIsOpen}>
             <LogoContainer>

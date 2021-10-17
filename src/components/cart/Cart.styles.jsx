@@ -30,8 +30,7 @@ export const CartOverviewContainer = styled.div`
     }
 
     @media screen and (min-width: 500px) {
-        min-width: 350px;
-        width: 40%;
+        width: 350px;
         border-left: 1px solid grey;
         border-bottom: 1px solid grey;
     }
@@ -40,6 +39,10 @@ export const CartOverviewContainer = styled.div`
 export const CloseCartBtn = styled(IoMdClose)`
     margin-right: auto;
     cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 `;
 
 export const ClearCartBtn = styled.span`
