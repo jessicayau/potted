@@ -30,6 +30,7 @@ export const store = configureStore({
                 ],
             },
         }).concat(sagaMiddleware),
+    devTools: process.env.NODE_ENV !== "production",
 });
 
 sagaMiddleware.run(rootSaga);
