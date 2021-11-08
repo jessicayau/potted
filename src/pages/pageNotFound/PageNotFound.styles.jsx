@@ -9,10 +9,14 @@ export const PageContainer = styled.div`
     align-items: center;
     padding: 0 5%;
     text-align: center;
+
+    p {
+        font-size: 1.1rem;
+    }
 `;
 
 export const Button = styled(Btn)`
     margin-top: 2rem;
-    min-width: 200px;
-    width: 40%;
+    width: 200px;
+    gap: 0.3rem;
 `;

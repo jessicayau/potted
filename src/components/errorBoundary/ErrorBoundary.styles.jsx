@@ -8,4 +8,9 @@ export const ErrorBoundaryContainer = styled.div`
     align-items: center;
     padding: 0 5%;
     text-align: center;
+
+    p {
+        font-size: 1.1rem;
+        line-height: 2rem;
+    }
 `;

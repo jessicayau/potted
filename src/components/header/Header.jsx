@@ -44,7 +44,7 @@ const Header = () => {
     return (
         <HeaderContainer menuIsOpen={menuIsOpen}>
             <LogoContainer>
-                <StyledLink to="/">
+                <StyledLink href="/">
                     <PlantLogo />
                     <Brand>Potted</Brand>
                 </StyledLink>

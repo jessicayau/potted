@@ -28,7 +28,6 @@ const Main = () => {
 
     return (
         <MainContainer>
-            {/* <Switch> */}
             <ErrorBoundary>
                 <Suspense fallback={<Spinner />}>
                     <Switch>
@@ -68,7 +67,6 @@ const Main = () => {
                     </Switch>
                 </Suspense>
             </ErrorBoundary>
-            {/* </Switch> */}
         </MainContainer>
     );
 };

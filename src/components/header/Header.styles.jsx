@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/images/plant-logo.svg";
 
 export const HeaderContainer = styled.div`
@@ -24,7 +23,7 @@ export const LogoContainer = styled.div`
     align-items: flex-end;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.a`
     height: 100%;
     display: flex;
     align-items: center;

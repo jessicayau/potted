@@ -9,8 +9,8 @@ const PageNotFound = () => {
     return (
         <PageContainer>
             <h1>OOPS!</h1>
-            <h2>404 - Page not found</h2>
-            <p>The page you're looking couldn't be found</p>
+            <h2>404 - Page Not Found</h2>
+            <p>The page you're looking for isn't here</p>
             <Button onClick={() => history.push("/")}>
                 <BsArrowLeft />
                 Home
