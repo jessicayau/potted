@@ -70,13 +70,14 @@ export const SideIconsContainer = styled.div`
     }
 `;
 
-export const BackButtonContainer = styled.div`
+export const BackButton = styled.button`
     height: 100%;
     min-width: 3rem;
     max-width: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
     border-top-right-radius: 0.6rem;
     border-bottom-right-radius: 0.6rem;
     background-color: var(--primary-bgcolor);

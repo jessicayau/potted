@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 import CartItem from "../cartItem/CartItem";
 import {
     toggleCartHidden,
@@ -36,13 +37,11 @@ const Cart = () => {
 
     return (
         <CartOverviewContainer>
-            <CloseCartBtn
-                title="close cart"
-                role="button"
-                onClick={cartToggleHandler}
-            />
+            <CloseCartBtn aria-label="close cart" onClick={cartToggleHandler}>
+                <IoMdClose />
+            </CloseCartBtn>
             {cartItems.length > 0 && (
-                <ClearCartBtn role="button" onClick={clearCartHandler}>
+                <ClearCartBtn onClick={clearCartHandler}>
                     Clear Cart
                 </ClearCartBtn>
             )}

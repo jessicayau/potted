@@ -20,6 +20,9 @@ export const CheckoutItemData = styled.td`
     padding-bottom: 1rem;
 
     & .remove-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 1.25rem;
         cursor: pointer;
 
         &:hover {
@@ -64,7 +67,10 @@ export const CheckoutItemQuantity = styled.span`
     justify-content: center;
 `;
 
-export const Arrow = styled.span`
+export const Arrow = styled.button`
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
     cursor: pointer;
-    margin: 0 0.625rem;
+    margin: 0 0.2rem;
 `;

@@ -42,13 +42,17 @@ export const Overlay = styled.div`
     }
 `;
 
-export const SwitchFormsBtn = styled.span`
+export const SwitchFormsBtn = styled.button`
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
     margin-top: 1.5rem;
     margin-right: auto;
     cursor: pointer;
     font-weight: 500;
     position: relative;
     display: inline-flex;
+    align-items: center;
 
     &:hover {
         font-weight: 700;

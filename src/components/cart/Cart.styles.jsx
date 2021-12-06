@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Btn from "../btn/Btn";
-import { IoMdClose } from "react-icons/io";
 
 export const CartOverviewContainer = styled.div`
     position: absolute;
@@ -36,7 +35,9 @@ export const CartOverviewContainer = styled.div`
     }
 `;
 
-export const CloseCartBtn = styled(IoMdClose)`
+export const CloseCartBtn = styled.button`
+    background-color: transparent;
+    border: none;
     margin-right: auto;
     cursor: pointer;
 
@@ -45,9 +46,12 @@ export const CloseCartBtn = styled(IoMdClose)`
     }
 `;
 
-export const ClearCartBtn = styled.span`
+export const ClearCartBtn = styled.button`
+    background-color: transparent;
+    border: none;
     margin-top: 1rem;
     margin-right: auto;
+    font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
 

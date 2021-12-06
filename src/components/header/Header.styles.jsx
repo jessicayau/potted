@@ -46,19 +46,21 @@ export const NavWrapper = styled.div`
     justify-content: center;
 `;
 
-export const BasketContainer = styled.div`
+export const BasketContainer = styled.button`
     height: 100%;
     margin: 0 1rem;
     position: relative;
     display: flex;
     justify-content: center;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 `;
 
 export const ItemCounter = styled.span`
     position: absolute;
-    right: -40%;
-    bottom: -50%;
+    right: -20%;
+    bottom: -40%;
     padding: 0.1rem 0.4rem;
     color: black;
     background: var(--header-color);
@@ -67,24 +69,28 @@ export const ItemCounter = styled.span`
     border: 1px solid grey;
 `;
 
-export const ToggleBtn = styled.div`
+export const ToggleBtn = styled.button`
     display: none;
 
     @media screen and (max-width: 768px) {
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: transparent;
+        border: none;
         width: 1.6rem;
         height: 1.6rem;
+        padding: 0;
         cursor: pointer;
         z-index: 2;
     }
 `;
 
-export const Line = styled.p`
+export const Line = styled.span`
     position: relative;
     width: 24px;
     height: 2px;
+    padding: 0;
     background-color: ${(props) =>
         props.menuIsOpen ? "transparent" : "black"};
     border-radius: 5px;
@@ -93,13 +99,14 @@ export const Line = styled.p`
     &::before,
     &::after {
         content: "";
+        position: absolute;
+        left: 0;
         width: 24px;
         height: 2px;
         background-color: ${(props) =>
             props.menuIsOpen ? "#a0cfb0" : "black"};
         border-radius: 5px;
         transition: all 250ms ease-in-out;
-        position: absolute;
     }
 
     &::before {

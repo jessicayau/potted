@@ -51,16 +51,13 @@ const Header = () => {
             </LogoContainer>
             <NavWrapper>
                 <Navbar menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} />
-                <BasketContainer role="button" onClick={handleCartToggle}>
+                <BasketContainer onClick={handleCartToggle}>
                     <FaShoppingBag title="cart" size="1.6rem" />
                     {cartItemsTotal > 0 && (
                         <ItemCounter>{cartItemsTotal}</ItemCounter>
                     )}
                 </BasketContainer>
-                <ToggleBtn
-                    role="button"
-                    onClick={() => setMenuIsOpen((prev) => !prev)}
-                >
+                <ToggleBtn onClick={() => setMenuIsOpen((prev) => !prev)}>
                     <Line menuIsOpen={menuIsOpen}></Line>
                 </ToggleBtn>
             </NavWrapper>

@@ -34,13 +34,16 @@ const CheckoutItem = ({ item }) => {
             <CheckoutItemData>
                 <CheckoutItemQuantity>
                     <Arrow
-                        role="button"
+                        aria-label="decrease quantity"
                         onClick={() => removeItemHandler(item)}
                     >
                         &#10094;
                     </Arrow>
                     <span className="value">{quantity}</span>
-                    <Arrow role="button" onClick={() => addItemHandler(item)}>
+                    <Arrow
+                        aria-label="increase quantity"
+                        onClick={() => addItemHandler(item)}
+                    >
                         &#10095;
                     </Arrow>
                 </CheckoutItemQuantity>
@@ -49,13 +52,13 @@ const CheckoutItem = ({ item }) => {
                 <span className="price">${price.toFixed(2)}</span>
             </CheckoutItemData>
             <CheckoutItemData>
-                <span
+                <button
                     className="remove-btn"
-                    role="button"
+                    aria-label="remove item"
                     onClick={() => clearItemHandler(item)}
                 >
                     &#10005;
-                </span>
+                </button>
             </CheckoutItemData>
         </CheckoutItemContainer>
     );

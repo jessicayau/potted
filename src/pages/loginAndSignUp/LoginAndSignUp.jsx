@@ -17,7 +17,7 @@ const LoginAndSignUp = () => {
             <FormsContainer activeForm={activeForm}>
                 <Login>
                     <SwitchFormsBtn
-                        role="button"
+                        aria-label="create account form"
                         onClick={() => setActiveForm("right")}
                     >
                         Create an account <FiChevronsRight />
@@ -25,10 +25,9 @@ const LoginAndSignUp = () => {
                 </Login>
                 <SignUp activeForm={activeForm}>
                     <SwitchFormsBtn
-                        role="button"
+                        aria-label="login form"
                         onClick={() => setActiveForm("left")}
                     >
-                        {" "}
                         <FiChevronsLeft /> Already have an account? Login
                     </SwitchFormsBtn>
                 </SignUp>

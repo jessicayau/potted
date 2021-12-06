@@ -12,7 +12,7 @@ import {
 import { IoMdPaw } from "react-icons/io";
 import {
     AddToCartBtn,
-    BackButtonContainer,
+    BackButton,
     DetailsContainer,
     FavoriteIconContainer,
     Image,
@@ -53,12 +53,12 @@ const ProductDetails = ({ currentProduct }) => {
             <ImageContainer>
                 <Image src={imageUrl} alt="plant" />
                 <SideIconsContainer>
-                    <BackButtonContainer>
+                    <BackButton>
                         <BiArrowBack
                             size="1.5rem"
                             onClick={() => history.goBack()}
                         />
-                    </BackButtonContainer>
+                    </BackButton>
                     <FavoriteIcon item={currentProduct} />
                 </SideIconsContainer>
             </ImageContainer>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Hero from "../../components/hero/Hero";
 import ProductCard from "../../components/productCard/ProductCard";
 import { selectBestsellers } from "../../redux/shop/shopSlice";
@@ -21,6 +21,7 @@ import {
 
 const Home = () => {
     const bestsellers = useSelector(selectBestsellers);
+    const history = useHistory();
 
     return (
         <div className="home-container">
@@ -64,7 +65,9 @@ const Home = () => {
                             noodles lychee falafel bites lemon red lentil soup
                             roasted peanuts cranberry spritzer
                         </FindPlantText>
-                        <FindPlantButton>Plant Quiz</FindPlantButton>
+                        <FindPlantButton onClick={() => history.push("/shop")}>
+                            All Plants
+                        </FindPlantButton>
                     </FindPlantContent>
                     <PlantImage src="/images/succulents.png" alt="succulent" />
                 </FindPlantContainer>
