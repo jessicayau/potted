@@ -1,9 +1,35 @@
-# Getting Started with Create React App
+# Potted
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A functional and fully-responsive e-commerce plant shop website built with React, Redux/Redux-Saga, Styled Components, Firebase, and Stripe, and deployed to Netlify.
+
+[Visit Live Site](https://potted.netlify.app)
+
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-2.png" width="33%">
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-6.png" width="33%">
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-7.png" width="33%">
+
+## Functionalities
+
+-   User authentication and user account creation with Google or email
+-   Product items with their own pages for product details
+-   Search filter for products
+-   Add/remove items to/from shopping cart
+-   Update quantity of items in shopping cart
+-   Add/remove items to/from favorites page
+-   Check out with credit card
+
+## Tech Stack
+
+-   React & React Router for creating reusable components and dynamic routing
+-   Redux for state management and persistance
+-   Redux-Saga for asynchronous actions (ie. retrieving data from Firebase)
+-   Styled Components for styling using CSS-in-JS
+-   Firebase for user authentication and user and product data storage
+-   Stripe API for handling payment processing
 
 ## Available Scripts
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `npm start`
@@ -38,33 +64,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
