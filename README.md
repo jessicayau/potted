@@ -2,21 +2,20 @@
 
 A functional and fully-responsive e-commerce plant shop website built with React, Redux/Redux-Saga, Styled Components, Firebase, and Stripe, and deployed to Netlify.
 
-[Visit Live Site](https://potted.netlify.app)
+[View Live Site](https://potted.netlify.app)
 
-<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-2.png" width="33%">
-<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-6.png" width="33%">
-<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-7.png" width="33%">
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-2.png" height="300px">
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-6.png" height="300px">
+<img src="https://github.com/jessicayau/portfolio/blob/main/projects/images/potted/potted-7.png" height="300px">
 
-## Functionalities
+## Features
 
 -   User authentication and user account creation with Google or email
 -   Product items with their own pages for product details
 -   Search filter for products
--   Add/remove items to/from shopping cart
--   Update quantity of items in shopping cart
--   Add/remove items to/from favorites page
--   Check out with credit card
+-   Shopping cart (add/update/remove items)
+-   Favorites page with favorited items
+-   Checkout using credit card
 
 ## Tech Stack
 
