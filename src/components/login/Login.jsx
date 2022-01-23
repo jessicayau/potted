@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserError } from "../../redux/user/userSlice";
 import Btn from "../btn/Btn";
 import FormInput from "../formInput/FormInput";
-import { Buttons, LoginContainer, LoginTitle } from "./Login.styles";
+import {
+    Buttons,
+    LoginContainer,
+    LoginErrorMsg,
+    LoginTitle,
+} from "./Login.styles";
 import { googleLoginStart, emailLoginStart } from "../../redux/user/userSlice";
 
 const Login = ({ children }) => {
@@ -11,6 +17,7 @@ const Login = ({ children }) => {
         password: "",
     });
     const { email, password } = userCredentials;
+    const error = useSelector(selectUserError);
 
     const dispatch = useDispatch();
     const googleLoginStartHandler = () => dispatch(googleLoginStart());
@@ -34,6 +41,7 @@ const Login = ({ children }) => {
         <LoginContainer>
             <LoginTitle>Log In</LoginTitle>
             <span>Log in with your email and password or Google account</span>
+            <LoginErrorMsg>{error}</LoginErrorMsg>
             <form onSubmit={handleSubmit}>
                 <FormInput
                     type="email"

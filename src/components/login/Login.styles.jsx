@@ -12,6 +12,11 @@ export const LoginTitle = styled.h2`
     margin: 0.625rem 0;
 `;
 
+export const LoginErrorMsg = styled.p`
+    color: var(--error-color);
+    padding: 1rem 0;
+`;
+
 export const Buttons = styled.div`
     display: flex;
     flex-direction: column;

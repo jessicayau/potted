@@ -15,7 +15,7 @@ export const userSlice = createSlice({
             state.error = null;
         },
         loginFailed: (state, action) => {
-            state.error = action.payload;
+            state.error = "Incorrect email and/or password";
         },
         emailLoginStart() {},
         googleLoginStart() {},
@@ -35,6 +35,7 @@ export const userSlice = createSlice({
 });
 
 export const selectCurrentUser = (state) => state.user.currentUser;
+export const selectUserError = (state) => state.user.error;
 
 export const {
     checkUserSession,
