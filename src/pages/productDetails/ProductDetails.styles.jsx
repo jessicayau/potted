@@ -4,6 +4,7 @@ import Btn from "../../components/btn/Btn";
 export const ProductDetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
 
     @media screen and (min-width: 600px) {
@@ -35,11 +36,13 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
+    /* height: 70vh; */
     width: 100%;
+    max-height: 80vh;
 
-    @media screen and (min-width: 1024px) {
-        height: 100%;
-    }
+    /* @media screen and (min-width: 1024px) {
+        height: 70vh;
+    } */
 `;
 
 export const FavoriteIconContainer = styled.div`

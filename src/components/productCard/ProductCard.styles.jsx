@@ -26,22 +26,18 @@ export const CardContainer = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 `;
 export const CardContent = styled.div`
     padding: 0.5rem 0.5rem 1rem;
     height: 80%;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: var(--card-bgcolor);
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     border-radius: 0.5rem;
-    position: relative;
 `;
 
 export const CardImage = styled.img`

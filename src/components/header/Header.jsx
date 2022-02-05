@@ -34,10 +34,10 @@ const Header = () => {
     useEffect(() => {
         if (menuIsOpen || !isHidden) {
             document.body.style.overflowY = "hidden";
-            document.body.style.paddingRight = "15px";
+            // document.body.style.position = "fixed";
         } else {
             document.body.style.overflowY = "auto";
-            document.body.style.paddingRight = "0";
+            // document.body.style.position = "initial";
         }
     }, [menuIsOpen, isHidden]);
 

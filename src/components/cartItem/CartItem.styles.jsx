@@ -3,8 +3,12 @@ import styled from "styled-components";
 export const CartItemContainer = styled.div`
     width: 100%;
     display: flex;
-    height: 30%;
+    height: 40%;
     margin-bottom: 1rem;
+
+    img {
+        height: 80%;
+    }
 `;
 
 export const ItemDetailsContainer = styled.div`

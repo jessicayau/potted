@@ -4,7 +4,6 @@ import Btn from "../btn/Btn";
 export const CartOverviewContainer = styled.div`
     position: absolute;
     width: 100%;
-    min-height: 340px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,6 +12,7 @@ export const CartOverviewContainer = styled.div`
     top: 0;
     right: 0;
     z-index: 5;
+    transition: all 2s ease;
 
     &::before {
         content: "";
@@ -62,6 +62,7 @@ export const ClearCartBtn = styled.button`
 
 export const GoToCheckoutBtn = styled(Btn)`
     margin: auto 0 1rem;
+    justify-self: flex-end;
 `;
 
 export const EmptyCartMessage = styled.span`
